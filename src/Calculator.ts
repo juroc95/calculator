@@ -190,4 +190,42 @@ export class Calculator {
     this.lcd = '0';
     this.overwrite = true;
   }
+
+  /**
+   * Square the current value on the screen.
+   */
+  square() {
+    if (this.lcd === 'Infinity') {
+      this.lcd = 'Infinity';
+    }
+    else if (this.lcd === '-Infinity') {
+      this.lcd = 'Infinity';
+    }
+    else if (this.lcd === 'NaN') {
+      this.lcd = 'NaN';
+    }
+    else {
+      this.lcd = (parseFloat(this.lcd) * parseFloat(this.lcd)).toString();
+    }
+  }
+
+  /**
+   * Replace the number on screen with the result of dividing 
+   * that number by 100.
+   */
+  percent() {
+    if (this.lcd === 'Infinity') {
+      this.lcd = 'Infinity';
+    }
+    else if (this.lcd === '-Infinity') {
+      this.lcd = '-Infinity';
+    }
+    else if (this.lcd === 'NaN') {
+      this.lcd = 'NaN';
+    }
+    else {
+      this.lcd = (parseFloat(this.lcd) / 100).toString();
+    }
+  }
+
 }

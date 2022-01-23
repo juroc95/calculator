@@ -341,3 +341,99 @@ test('divide three different numbers', () => {
           expect(calc.lcd).toBe(((i / j) / k).toString());
       }
 });
+
+test('square in overwrite mode', () => {
+  let calc = new Calculator();
+  calc.lcd = '0';
+  calc.overwrite = true;
+  calc.square();
+  expect(calc.lcd).toBe('0');
+});
+
+test('square in append mode with positive integer on screen', () => {
+  for (let x of ['50', '3', '2', '1']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.square();
+    expect(calc.lcd).toBe(parseFloat(x) * parseFloat(x));
+  }
+});
+
+test('square whin append mode with negative integer on screen', () => {
+  for (let x of ['-50', '-3', '-2', '-1']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.square();
+    expect(calc.lcd).toBe(parseFloat(x) * parseFloat(x));
+  }
+});
+
+test('square in append mode with positive float on screen', () => {
+  for (let x of ['50.0', '50.', '49.9', '3.10', '2.09', '1.']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.square();
+    expect(calc.lcd).toBe(parseFloat(x) * parseFloat(x));
+  }
+});
+
+test('square in append mode with negative float on screen', () => {
+  for (let x of ['-50.0', '-50.', '-49.9', '-3.10', '-2.09', '-1.']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.square();
+    expect(calc.lcd).toBe(parseFloat(x) * parseFloat(x));
+  }
+});
+
+test('percent in overwrite mode', () => {
+  let calc = new Calculator();
+  calc.lcd = '0';
+  calc.overwrite = true;
+  calc.percent();
+  expect(calc.lcd).toBe('0');
+});
+
+test('percent in append mode with positive integer on screen', () => {
+  for (let x of ['50', '3', '2', '1']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.percent();
+    expect(calc.lcd).toBe(parseFloat(x) / 100);
+  }
+});
+
+test('percent whin append mode with negative integer on screen', () => {
+  for (let x of ['-50', '-3', '-2', '-1']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.percent();
+    expect(calc.lcd).toBe(parseFloat(x) / 100);
+  }
+});
+
+test('percent in append mode with positive float on screen', () => {
+  for (let x of ['50.0', '50.', '49.9', '3.10', '2.09', '1.']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.percent();
+    expect(calc.lcd).toBe(parseFloat(x) / 100);
+  }
+});
+
+test('percent in append mode with negative float on screen', () => {
+  for (let x of ['-50.0', '-50.', '-49.9', '-3.10', '-2.09', '-1.']) {
+    let calc = new Calculator();
+    calc.lcd = x;
+    calc.overwrite = false;
+    calc.percent();
+    expect(calc.lcd).toBe(parseFloat(x) / 100);
+  }
+});
