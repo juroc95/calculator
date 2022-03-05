@@ -216,3 +216,4 @@ export class Calculator {
   set debugLogVisibility(visibility: LogVisibility) {
     // TODO
   }
+}
