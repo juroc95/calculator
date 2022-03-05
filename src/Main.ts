@@ -1,5 +1,5 @@
+import { LogVisibility, Op } from './Calculator';
 import { CalculatorUI } from './CalculatorUI';
-import { Op } from './Calculator';
 
 window.onload = () => {
   const calcUI = new CalculatorUI('lcd');
@@ -21,4 +21,28 @@ window.onload = () => {
   document.getElementById('/').onclick = () => calcUI.op(Op.Div);
   document.getElementById('=').onclick = () => calcUI.equals();
   document.getElementById('C').onclick = () => calcUI.clear();
-}
+  document.getElementById('error').onchange = event => {
+    calcUI.errorLogVisibility =
+      (<HTMLInputElement> event.target).checked ?
+        LogVisibility.Display :
+        LogVisibility.Ignore;
+  };
+  document.getElementById('warning').onchange = event => {
+    calcUI.warningLogVisibility =
+      (<HTMLInputElement> event.target).checked ?
+        LogVisibility.Display :
+        LogVisibility.Ignore;
+  };
+  document.getElementById('info').onchange = event => {
+    calcUI.infoLogVisibility =
+      (<HTMLInputElement> event.target).checked ?
+        LogVisibility.Display :
+        LogVisibility.Ignore;
+  };
+  document.getElementById('debug').onchange = event => {
+    calcUI.debugLogVisibility =
+      (<HTMLInputElement> event.target).checked ?
+        LogVisibility.Display :
+        LogVisibility.Ignore;
+  };
+};

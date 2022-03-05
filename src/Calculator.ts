@@ -23,6 +23,11 @@ export enum Op {
   Div
 }
 
+export enum LogVisibility {
+  Display,
+  Ignore
+}
+
 /**
  * A basic four-function calculator. UI logic is handled separately in
  * {@link CalculatorUI}.
@@ -192,5 +197,21 @@ export class Calculator {
     }
     this.lcd = '0';
     this.overwrite = true;
+  }
+
+  set errorLogVisibility(visibility: LogVisibility) {
+    // TODO
+  }
+
+  set warningLogVisibility(visibility: LogVisibility) {
+    // TODO
+  }
+
+  set infoLogVisibility(visibility: LogVisibility) {
+    // TODO
+  }
+
+  set debugLogVisibility(visibility: LogVisibility) {
+    // TODO
   }
 }
