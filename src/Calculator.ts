@@ -77,37 +77,40 @@ export class Calculator {
    * Input a single digit.
    * @param x a single digit, 0-9
    */
-  digit(x: number) {
+  digit(x: number): void {
     if (this.overwrite) {
       this.lcd = x.toString();
       this.overwrite = false;
-    } else
+    } else {
       this.lcd += x;
+    }
   }
 
   /**
    * Input a decimal point.
    */
-  decimal() {
+  decimal(): void {
     if (this.overwrite) {
       this.lcd = '0.';
       this.overwrite = false;
-    } else if (this.lcd.indexOf('.') === -1) // don't allow more than one '.'
+    } else if (this.lcd.indexOf('.') === -1) { // don't allow more than one '.'
       this.lcd += '.';
+    }
   }
 
   /**
    * Negate the current value on the screen.
    */
-  negate() {
+  negate(): void {
     if (this.overwrite) {
       this.lcd = '0';
       this.overwrite = false;
-    } else if (this.lcd !== '0') // don't negate '0'
+    } else if (this.lcd !== '0') { // don't negate '0'
       if (this.lcd.charAt(0) === '-')
-        this.lcd = this.lcd.substring(1)
+        this.lcd = this.lcd.substring(1);
       else
-        this.lcd = '-' + this.lcd
+        this.lcd = '-' + this.lcd;
+    }
   }
 
   /**
@@ -116,7 +119,7 @@ export class Calculator {
    * example, when a user inputs 2 + 4 + 8, the screen is updated to display 6
    * on the second + input.
    */
-  op(o: Op) {
+  op(o: Op): void {
     this.overwrite = true;
     if (this.arg === null || this.repeat) { // if this is the first argument
       this.lastOp = o;
@@ -141,11 +144,11 @@ export class Calculator {
    *
    * @see {@link repeat}
    */
-  equals() {
+  equals(): void {
     // If `repeat` is disabled, this press of = will enable it. In that case,
     // the value currently on screen is the second argument, the one that's used
     // when repeating the operation.
-    let oldLcd = parseFloat(this.lcd);
+    const oldLcd = parseFloat(this.lcd);
 
     // If `repeat` is disabled, then `this.arg` is the first argument to the
     // operation; if `repeat` is enabled, then it's the second argument.
@@ -158,9 +161,9 @@ export class Calculator {
           this.lcd = (parseFloat(this.lcd) - this.arg).toString();
         else
           this.lcd = (this.arg - parseFloat(this.lcd)).toString();
-          break;
+        break;
       case Op.Mul: this.lcd = (this.arg * parseFloat(this.lcd)).toString(); break;
-      case Op.Div: 
+      case Op.Div:
         if (this.repeat)
           this.lcd = (parseFloat(this.lcd) / this.arg).toString();
         else
@@ -181,7 +184,7 @@ export class Calculator {
    * Clear the screen, resetting it to 0. If in overwrite mode, reset the
    * entire calculator to its initial state.
    */
-  clear() {
+  clear(): void {
     if (this.overwrite) {
       this.arg = null;
       this.lastOp = null;

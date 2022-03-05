@@ -1,8 +1,8 @@
-import { CalculatorUI } from "./CalculatorUI"
-import { Op } from "./Calculator"
+import { CalculatorUI } from './CalculatorUI';
+import { Op } from './Calculator';
 
 window.onload = () => {
-  let calcUI = new CalculatorUI('lcd');
+  const calcUI = new CalculatorUI('lcd');
   document.getElementById('1').onclick = () => calcUI.digit(1);
   document.getElementById('2').onclick = () => calcUI.digit(2);
   document.getElementById('3').onclick = () => calcUI.digit(3);
