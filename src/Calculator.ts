@@ -1,3 +1,5 @@
+import { } from 'logger';
+
 /**
  * The binary operations supported by the calculator.
  */
@@ -214,4 +216,3 @@ export class Calculator {
   set debugLogVisibility(visibility: LogVisibility) {
     // TODO
   }
-}
