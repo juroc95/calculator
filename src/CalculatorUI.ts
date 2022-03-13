@@ -47,12 +47,12 @@ export class CalculatorUI extends Calculator {
     this.lcdDisplay.innerHTML = this.lcd.toString();
   }
 
-  square() {
+  square(): void {
     super.square();
     this.lcdDisplay.innerHTML = this.lcd.toString();
   }
 
-  percent() {
+  percent(): void {
     super.percent();
     this.lcdDisplay.innerHTML = this.lcd.toString();
   }
