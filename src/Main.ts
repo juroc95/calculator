@@ -23,11 +23,11 @@ window.onload = () => {
   document.getElementById('C').onclick = () => calcUI.clear();
   document.getElementById('^2').onclick = () => calcUI.square();
   document.getElementById('%').onclick = () => calcUI.percent();
-  
+
   document.getElementById('error').onchange = event => {
-    calcUI.errorLogVisibility = 
-      (<HTMLInputElement> event.target).checked ? 
-        LogVisibility.Display : 
+    calcUI.errorLogVisibility =
+      (<HTMLInputElement> event.target).checked ?
+        LogVisibility.Display :
         LogVisibility.Ignore;
   };
   document.getElementById('warning').onchange = event => {
