@@ -1,5 +1,11 @@
-import { Level, Logger } from '../logger';
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { Level, Logger } from 'Logger';
 
+/**
+ * Logger and Levels
+ */
 const mylogger = new Logger();
 const error: Level = 0;
 const warn: Level = 1;
@@ -31,6 +37,9 @@ export enum Op {
   Div
 }
 
+/**
+ * Log Visibility
+ */
 export enum LogVisibility {
   Display,
   Ignore
